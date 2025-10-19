@@ -52,12 +52,12 @@ const projects = [
     description:
       "A modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark/light mode, smooth animations, and optimized performance with server-side rendering.",
     image: image3,
-    liveUrl: "https://sadikur-portfolio.vercel.app",
+    liveUrl: "https://next-portfolio-alpha-three.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Next-Portfolio",
     technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
     status: "In Progress",
     year: "2024",
-    features: ["SSR/SSG", "Dark Mode", "Responsive Design", "Contact Form"],
+    features: ["SSR/SSG", "Responsive Design", "Contact Form"],
   },
 ];
 

@@ -129,58 +129,99 @@ const EXPERIENCES: Experience[] = [
 
 function ExperienceCard({ exp }: { exp: Experience }) {
   return (
-    <article className="border-b pb-6 mb-6">
-      <h3 className="text-base sm:text-lg font-semibold leading-snug">
-        {exp.role}
-      </h3>
-      <p className="text-sm text-gray-700 mt-0.5">
-        {exp.company}
-        {exp.employmentType ? (
-          <span className="text-gray-500"> · {exp.employmentType}</span>
-        ) : null}
-      </p>
-      <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-gray-600">
-        <span className="inline-flex items-center gap-1">
-          <Calendar className="h-3.5 w-3.5" />
-          {exp.start} — {exp.end}
-        </span>
+    <article className="group relative bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 p-6 mb-6">
+      {/* Timeline indicator */}
+      <div className="absolute left-0 top-8 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-sm -translate-x-2"></div>
+
+      <div className="ml-4">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              {exp.role}
+            </h3>
+            <p className="text-base font-semibold text-blue-600 mt-1">
+              {exp.company}
+              {exp.employmentType && (
+                <span className="text-gray-500 font-normal">
+                  {" "}
+                  · {exp.employmentType}
+                </span>
+              )}
+            </p>
+          </div>
+
+          {/* Duration badge */}
+          <div className="flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+            <Calendar className="h-4 w-4" />
+            {exp.start} — {exp.end}
+          </div>
+        </div>
+
+        {/* Location */}
         {exp.location && (
-          <span className="inline-flex items-center gap-1">
-            <MapPin className="h-3.5 w-3.5" />
-            {exp.location}
-          </span>
+          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+            <MapPin className="h-4 w-4 text-gray-400" />
+            <span>{exp.location}</span>
+          </div>
+        )}
+
+        {/* Description */}
+        {exp.description && (
+          <p className="text-gray-700 leading-relaxed mb-4 text-base">
+            {exp.description}
+          </p>
+        )}
+
+        {/* Skills */}
+        {exp.skills && exp.skills.length > 0 && (
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-gray-900 mb-2">
+              Key Skills
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {exp.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-full text-sm font-medium transition-colors cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Links */}
+        {exp.links && exp.links.length > 0 && (
+          <div className="flex flex-wrap gap-4">
+            {exp.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                {link.label}
+              </a>
+            ))}
+          </div>
         )}
       </div>
-      {exp.description && (
-        <p className="mt-3 text-sm leading-relaxed text-gray-800">
-          {exp.description}
-        </p>
-      )}
-      {exp.skills && exp.skills.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-2">
-          {exp.skills.map((s) => (
-            <span
-              key={s}
-              className="px-2 py-1 rounded-full border text-xs text-gray-700 bg-white/60"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
-      )}
-      {exp.links && exp.links.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-3">
-          {exp.links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="inline-flex items-center gap-1 text-sm underline underline-offset-2 hover:no-underline"
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-      )}
     </article>
   );
 }
@@ -189,18 +230,65 @@ function ExperienceCard({ exp }: { exp: Experience }) {
 
 export default function ExperiencePage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 mt-16">
-      <header className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-          Experience
-        </h1>
-      </header>
+    <main className="min-h-screen bg-gray-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header Section */}
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Professional Experience
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            A journey through my career, showcasing growth, skills, and
+            contributions across various roles and organizations.
+          </p>
+        </header>
 
-      <section>
-        {EXPERIENCES.map((exp, i) => (
-          <ExperienceCard key={`${exp.company}-${exp.role}-${i}`} exp={exp} />
-        ))}
-      </section>
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200"></div>
+
+          {/* Experience Cards */}
+          <section className="space-y-8">
+            {EXPERIENCES.map((exp, i) => (
+              <ExperienceCard
+                key={`${exp.company}-${exp.role}-${i}`}
+                exp={exp}
+              />
+            ))}
+          </section>
+        </div>
+
+        {/* Footer CTA */}
+        <div className="mt-16 text-center bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to work together?
+          </h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            I&apos;m always excited to take on new challenges and contribute to
+            meaningful projects. Let&apos;s discuss how we can collaborate.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+          >
+            Get In Touch
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
