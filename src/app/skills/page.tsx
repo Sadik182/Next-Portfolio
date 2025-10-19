@@ -1,5 +1,4 @@
 // app/skills/page.tsx
-import type { Metadata } from "next";
 
 type Level = "Beginner" | "Intermediate" | "Advanced" | "Expert";
 
