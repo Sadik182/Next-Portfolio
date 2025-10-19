@@ -55,9 +55,45 @@ const projects = [
     liveUrl: "https://next-portfolio-alpha-three.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Next-Portfolio",
     technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    status: "In Progress",
+    status: "Completed",
     year: "2024",
     features: ["SSR/SSG", "Responsive Design", "Contact Form"],
+  },
+  {
+    id: 4,
+    title: "ToDoList App",
+    description:
+      "A modern task management application built with Next.js and TypeScript. Features task creation, editing, deletion, and local storage persistence for seamless user experience.",
+    image: image1,
+    liveUrl: "https://github.com/Sadik182/ToDoList",
+    codeUrl: "https://github.com/Sadik182/ToDoList",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
+    status: "In Progress",
+    year: "2024",
+    features: [
+      "Task Management",
+      "Local Storage",
+      "Responsive Design",
+      "TypeScript",
+    ],
+  },
+  {
+    id: 5,
+    title: "GoalFlow",
+    description:
+      "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Built with modern web technologies for optimal performance.",
+    image: image2,
+    liveUrl: "https://goal-flow-liard.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/GoalFlow",
+    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
+    status: "In Progress",
+    year: "2024",
+    features: [
+      "Goal Tracking",
+      "Progress Monitoring",
+      "User Dashboard",
+      "Vercel Deployment",
+    ],
   },
 ];
 

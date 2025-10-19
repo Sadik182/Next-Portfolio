@@ -28,7 +28,12 @@ const education = [
     school:
       "International University of Business Agriculture and Technology (IUBAT)",
     degree: "BSc in Computer Science",
-    period: "2018 — 2021",
+    period: "2018 — 2022",
+  },
+  {
+    school: "CCN Polytechnic Institute (Cumilla)",
+    degree: "Diploma in Computer Technology",
+    period: "2013 — 2017",
   },
 ];
 
