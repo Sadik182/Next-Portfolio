@@ -18,62 +18,6 @@ const highlights = [
   { label: "Focus", value: "Performance, clean UI, maintainable code" },
 ];
 
-const experience = [
-  {
-    title: "Junior Software Developer",
-    company: "YouX Powered",
-    location: "Sydney (On-site)",
-    period: "Jul 2025 — Present",
-    bullets: [
-      "Build and maintain features in Next.js (App Router) with TypeScript and MongoDB.",
-      "Fix bugs and improve performance for smoother UX.",
-      "Collaborate with teammates using Git/Bitbucket and Jira.",
-    ],
-  },
-  {
-    title: "Software Developer (Intern)",
-    company: "YouX Powered",
-    location: "Sydney (On-site)",
-    period: "Mar 2025 — Jul 2025",
-    bullets: [
-      "Learned production workflows and contributed to scalable components.",
-      "Worked closely with senior devs to ship user-facing improvements.",
-    ],
-  },
-  {
-    title: "Junior Software Engineer",
-    company: "Flair Group Bangladesh",
-    location: "On-site",
-    period: "Jun 2022 — Dec 2022",
-    bullets: ["Hands-on engineering experience in a team environment."],
-  },
-  {
-    title: "Software Engineer (Trainee)",
-    company: "Aurora IT-21",
-    location: "Dhaka",
-    period: "Jan 2022 — Apr 2022",
-    bullets: ["Built foundational skills and learned team code practices."],
-  },
-  {
-    title: "Mentor",
-    company: "IUBAT IT Society",
-    location: "Dhaka",
-    period: "Jun 2021 — Jan 2022",
-    bullets: [
-      "Guided juniors and helped them with programming basics and projects.",
-    ],
-  },
-  {
-    title: "Academic Mentor (Part-time)",
-    company: "IUBAT",
-    location: "Dhaka",
-    period: "May 2019 — Jan 2022",
-    bullets: [
-      "Assisted probation students; ran weekly mentoring classes for freshers.",
-    ],
-  },
-];
-
 const education = [
   {
     school: "CQUniversity",
@@ -123,7 +67,7 @@ export default function AboutPage() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Hi, I'm <span className="text-blue-600">Sadik</span>
+            Hi, I&apos;m <span className="text-blue-600">Sadik</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             A passionate <strong>Junior Software Developer</strong> based in
@@ -171,7 +115,7 @@ export default function AboutPage() {
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 />
               </svg>
-              Let's Connect
+              Let&apos;s Connect
             </Link>
           </div>
         </section>
@@ -300,7 +244,7 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-6">
-            {education.map((ed, index) => (
+            {education.map((ed) => (
               <div
                 key={ed.degree}
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
@@ -351,10 +295,10 @@ export default function AboutPage() {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white text-center">
             <h2 className="text-4xl font-bold mb-6">Beyond the Code</h2>
             <p className="text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-              When I'm not coding, you'll find me exploring Sydney's vibrant
-              tech scene, learning new technologies, or helping fellow
-              developers solve problems. I believe in continuous learning and
-              sharing knowledge with the community.
+              When I&apos;m not coding, you&apos;ll find me exploring
+              Sydney&apos;s vibrant tech scene, learning new technologies, or
+              helping fellow developers solve problems. I believe in continuous
+              learning and sharing knowledge with the community.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-white/20 px-4 py-2 rounded-full">
@@ -380,9 +324,9 @@ export default function AboutPage() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              I'm always excited to work on new projects and collaborate with
-              fellow developers. Let's discuss how we can bring your ideas to
-              life.
+              I&apos;m always excited to work on new projects and collaborate
+              with fellow developers. Let&apos;s discuss how we can bring your
+              ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -119,7 +119,7 @@ export default function Hero() {
         >
           <a
             href="/Resume.pdf"
-            download
+            target="_blank"
             className="inline-flex items-center gap-2 px-6 py-3 text-lg font-semibold text-indigo-700 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             aria-label="Download CV as PDF"
           >
