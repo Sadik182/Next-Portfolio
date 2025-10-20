@@ -25,11 +25,6 @@ const groups: Group[] = [
         level: "Advanced",
         note: "Responsive UI, design systems",
       },
-      {
-        name: "Framer Motion",
-        level: "Intermediate",
-        note: "Micro-interactions",
-      },
     ],
   },
   {
@@ -48,8 +43,18 @@ const groups: Group[] = [
     title: "Tools",
     skills: [
       { name: "Git & Bitbucket", level: "Advanced", note: "PRs, reviews" },
-      { name: "Jira", level: "Intermediate", note: "Scrum/Kanban" },
-      { name: "Docker (basics)", level: "Beginner" },
+      { name: "Postman", level: "Advanced", note: "API testing, collections" },
+      {
+        name: "Chrome DevTools",
+        level: "Advanced",
+        note: "Performance, debugging",
+      },
+      { name: "Vercel", level: "Advanced", note: "Deployment, analytics" },
+
+      {
+        name: "GitHub Actions",
+        level: "Intermediate",
+      },
     ],
   },
   {
@@ -59,8 +64,7 @@ const groups: Group[] = [
       { name: "Mentoring", level: "Advanced", note: "IUBAT IT Society" },
       {
         name: "Problem Solving",
-        level: "Advanced",
-        note: "Debugging, perf wins",
+        level: "Intermediate",
       },
       { name: "Communication", level: "Advanced" },
     ],

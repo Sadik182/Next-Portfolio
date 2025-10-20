@@ -79,7 +79,7 @@ const EXPERIENCES: Experience[] = [
   },
   {
     company: "IUBAT IT Society",
-    role: "Mentor",
+    role: "Assistant Academic Manager",
     employmentType: "Volunteer",
     start: "Jun 2021",
     end: "Jan 2022",
@@ -90,7 +90,7 @@ const EXPERIENCES: Experience[] = [
   {
     company: "IUBAT",
     role: "Academic Mentor",
-    employmentType: "Part-time",
+    employmentType: "Volunteer",
     start: "May 2019",
     end: "Jan 2022",
     description:
