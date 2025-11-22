@@ -8,11 +8,11 @@ import profilePic from "../../../public/images/YOUX_profile.jpg";
 
 export const metadata: Metadata = {
   title: "About — Md Sadikur Rahman",
-  description: "About Md Sadikur Rahman — Junior Software Developer in Sydney.",
+  description: "About Md Sadikur Rahman —Software Developer in Sydney.",
 };
 
 const highlights = [
-  { label: "Role", value: "Junior Software Developer @ YouX Powered" },
+  { label: "Role", value: "Software Developer @ YouX Powered" },
   { label: "Location", value: "Sydney, Australia" },
   { label: "Stack", value: "Next.js, TypeScript, MongoDB, Tailwind" },
   { label: "Focus", value: "Performance, clean UI, maintainable code" },
@@ -75,11 +75,10 @@ export default function AboutPage() {
             Hi, I&apos;m <span className="text-blue-600">Sadik</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A passionate <strong>Junior Software Developer</strong> based in
-            Sydney, crafting modern web applications with{" "}
-            <strong>Next.js</strong>, <strong>TypeScript</strong>, and{" "}
-            <strong>MongoDB</strong>. I turn complex problems into simple,
-            elegant solutions.
+            A passionate <strong>Software Developer</strong> based in Sydney,
+            crafting modern web applications with <strong>Next.js</strong>,{" "}
+            <strong>TypeScript</strong>, and <strong>MongoDB</strong>. I turn
+            complex problems into simple, elegant solutions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

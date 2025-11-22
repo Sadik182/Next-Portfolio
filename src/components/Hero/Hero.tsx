@@ -67,7 +67,7 @@ export default function Hero() {
         >
           <li className="rounded-full bg-white/15 px-3 py-1">Sydney, AU</li>
           <li className="rounded-full bg-white/15 px-3 py-1">
-            Junior Software Developer @ YouX Powered
+            Software Developer @ YouX Powered
           </li>
           <li className="rounded-full bg-white/15 px-3 py-1">
             Next.js • TS • MongoDB • Tailwind

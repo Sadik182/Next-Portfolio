@@ -7,6 +7,9 @@ import { Github, ExternalLink, Calendar, Code } from "lucide-react";
 import image1 from "@/assets/images/1.jpg";
 import image2 from "@/assets/images/2.jpg";
 import image3 from "@/assets/images/3.jpg";
+import image4 from "@/assets/images/4.jpg";
+import image5 from "@/assets/images/5.jpg";
+import image7 from "@/assets/images/7.jpg";
 
 const projects = [
   {
@@ -64,7 +67,7 @@ const projects = [
     title: "ToDoList App",
     description:
       "A modern task management application built with Next.js and TypeScript. Features task creation, editing, deletion, and local storage persistence for seamless user experience.",
-    image: image1,
+    image: image4,
     liveUrl: "https://github.com/Sadik182/ToDoList",
     codeUrl: "https://github.com/Sadik182/ToDoList",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
@@ -82,7 +85,7 @@ const projects = [
     title: "GoalFlow",
     description:
       "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Built with modern web technologies for optimal performance.",
-    image: image2,
+    image: image5,
     liveUrl: "https://goal-flow-liard.vercel.app/",
     codeUrl: "https://github.com/Sadik182/GoalFlow",
     technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
@@ -94,6 +97,19 @@ const projects = [
       "User Dashboard",
       "Vercel Deployment",
     ],
+  },
+  {
+    id: 6,
+    title: "Expense Tracker ",
+    description:
+      "A expense tracking application designed to help users track their expenses. Built with modern web technologies for optimal performance.",
+    image: image7,
+    liveUrl: "https://expense-tracker-next-js.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/Expense-Tracker-Next-JS",
+    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
+    status: "In Progress",
+    year: "2025",
+    features: ["Expense Tracking", "User Dashboard", "Vercel Deployment"],
   },
 ];
 
