@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import profilePic from "../../../public/images/YOUX_profile.jpg";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -81,7 +81,7 @@ export default function Hero() {
           aria-label="Social links"
         >
           <a
-            href="https://github.com/sadikur"
+            href="https://github.com/Sadik182"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -91,7 +91,7 @@ export default function Hero() {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/sadikur"
+            href="https://www.linkedin.com/in/sadik182/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
@@ -101,14 +101,14 @@ export default function Hero() {
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
-            href="https://twitter.com/sadikur"
+            href="https://www.facebook.com/Sadik1820/"
             target="_blank"
             rel="noreferrer"
             aria-label="Twitter"
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
           >
-            <FaTwitter size={28} />
-            <span className="sr-only">Twitter</span>
+            <FaFacebook size={28} />
+            <span className="sr-only">Facebook</span>
           </a>
         </motion.div>
 
