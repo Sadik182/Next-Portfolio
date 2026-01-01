@@ -48,14 +48,17 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <section className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Let&apos;s <span className="text-blue-600">Connect</span>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            Let&apos;s{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Connect
+            </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             Have a project in mind? Want to collaborate? Or just want to say hi?
             I&apos;d love to hear from you. Let&apos;s start a conversation.
           </p>
@@ -63,12 +66,12 @@ export default function ContactPage() {
 
         {/* Contact Form Section */}
         <section className="mb-20">
-          <div className="bg-white rounded-3xl p-12 shadow-xl border border-gray-100">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Send me a message
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
                 Fill out the form below and I&apos;ll get back to you as soon as
                 possible.
               </p>
@@ -93,7 +96,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-semibold text-white"
                   >
                     Full Name *
                   </label>
@@ -101,7 +104,7 @@ export default function ContactPage() {
                     id="name"
                     type="text"
                     {...register("name")}
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                    className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                     placeholder="John Doe"
                     aria-invalid={!!errors.name}
                   />
@@ -126,7 +129,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-semibold text-white"
                   >
                     Email Address *
                   </label>
@@ -134,7 +137,7 @@ export default function ContactPage() {
                     id="email"
                     type="email"
                     {...register("email")}
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                    className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                     placeholder="john@example.com"
                     aria-invalid={!!errors.email}
                   />
@@ -160,7 +163,7 @@ export default function ContactPage() {
               <div className="space-y-2 mb-8">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-900"
+                  className="block text-sm font-semibold text-white"
                 >
                   Message *
                 </label>
@@ -168,7 +171,7 @@ export default function ContactPage() {
                   id="message"
                   rows={6}
                   {...register("message")}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 resize-none"
+                  className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
                   placeholder="Tell me about your project, idea, or just say hello..."
                   aria-invalid={!!errors.message}
                 />
@@ -194,7 +197,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:shadow-none"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-blue-400 disabled:to-purple-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:shadow-none"
                 >
                   {status === "loading" ? (
                     <>
@@ -279,7 +282,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-500 mt-6 text-center">
+              <p className="text-sm text-slate-400 mt-6 text-center">
                 By submitting this form, you agree to be contacted about your
                 inquiry. I typically respond within 24 hours.
               </p>
@@ -289,7 +292,7 @@ export default function ContactPage() {
 
         {/* Alternative Contact Methods */}
         <section className="text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
+          <div className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-3xl p-12 text-white">
             <h2 className="text-4xl font-bold mb-6">Other Ways to Connect</h2>
             <p className="text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
               Prefer a different way to get in touch? I&apos;m also available on
@@ -300,7 +303,7 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/in/sadik182/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/20 hover:bg-white/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
+                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:bg-slate-800 hover:border-blue-500/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
               >
                 <svg
                   className="h-5 w-5"
@@ -315,7 +318,7 @@ export default function ContactPage() {
                 href="https://github.com/Sadik182"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/20 hover:bg-white/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
+                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:bg-slate-800 hover:border-blue-500/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
               >
                 <svg
                   className="h-5 w-5"
@@ -330,7 +333,7 @@ export default function ContactPage() {
                 href="https://www.facebook.com/Sadik1820/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/20 hover:bg-white/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
+                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:bg-slate-800 hover:border-blue-500/30 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
               >
                 <svg
                   className="h-5 w-5"

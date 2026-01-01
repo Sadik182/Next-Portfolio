@@ -129,21 +129,21 @@ const EXPERIENCES: Experience[] = [
 
 function ExperienceCard({ exp }: { exp: Experience }) {
   return (
-    <article className="group relative bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 p-6 mb-6">
+    <article className="group relative bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all duration-300 p-6 mb-6">
       {/* Timeline indicator */}
-      <div className="absolute left-0 top-8 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-sm -translate-x-2"></div>
+      <div className="absolute left-0 top-8 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-slate-900 shadow-sm -translate-x-2"></div>
 
       <div className="ml-4">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
               {exp.role}
             </h3>
-            <p className="text-base font-semibold text-blue-600 mt-1">
+            <p className="text-base font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mt-1">
               {exp.company}
               {exp.employmentType && (
-                <span className="text-gray-500 font-normal">
+                <span className="text-slate-400 font-normal">
                   {" "}
                   · {exp.employmentType}
                 </span>
@@ -152,7 +152,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
           </div>
 
           {/* Duration badge */}
-          <div className="flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+          <div className="flex items-center gap-1 px-3 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-300 rounded-full text-sm font-medium">
             <Calendar className="h-4 w-4" />
             {exp.start} — {exp.end}
           </div>
@@ -160,15 +160,15 @@ function ExperienceCard({ exp }: { exp: Experience }) {
 
         {/* Location */}
         {exp.location && (
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <MapPin className="h-4 w-4 text-gray-400" />
+          <div className="flex items-center gap-2 text-sm text-slate-300 mb-4">
+            <MapPin className="h-4 w-4 text-slate-400" />
             <span>{exp.location}</span>
           </div>
         )}
 
         {/* Description */}
         {exp.description && (
-          <p className="text-gray-700 leading-relaxed mb-4 text-base">
+          <p className="text-slate-300 leading-relaxed mb-4 text-base">
             {exp.description}
           </p>
         )}
@@ -176,14 +176,14 @@ function ExperienceCard({ exp }: { exp: Experience }) {
         {/* Skills */}
         {exp.skills && exp.skills.length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">
+            <h4 className="text-sm font-semibold text-white mb-2">
               Key Skills
             </h4>
             <div className="flex flex-wrap gap-2">
               {exp.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1 bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-full text-sm font-medium transition-colors cursor-default"
+                  className="px-3 py-1 bg-slate-700/50 hover:bg-blue-500/20 text-slate-300 hover:text-blue-300 rounded-full text-sm font-medium transition-colors cursor-default border border-slate-600/50 hover:border-blue-500/30"
                 >
                   {skill}
                 </span>
@@ -201,7 +201,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg text-sm font-medium transition-all"
               >
                 <svg
                   className="h-4 w-4"
@@ -230,14 +230,14 @@ function ExperienceCard({ exp }: { exp: Experience }) {
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Professional Experience
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             A journey through my career, showcasing growth, skills, and
             contributions across various roles and organizations.
           </p>
@@ -246,7 +246,7 @@ export default function ExperiencePage() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50"></div>
 
           {/* Experience Cards */}
           <section className="space-y-8">
@@ -260,17 +260,17 @@ export default function ExperiencePage() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-16 text-center bg-white rounded-xl p-8 shadow-sm border border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-16 text-center bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-slate-700/50">
+          <h2 className="text-2xl font-bold text-white mb-4">
             Ready to work together?
           </h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
             I&apos;m always excited to take on new challenges and contribute to
             meaningful projects. Let&apos;s discuss how we can collaborate.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-semibold transition-all"
           >
             Get In Touch
             <svg

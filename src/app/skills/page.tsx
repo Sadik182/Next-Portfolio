@@ -75,15 +75,15 @@ export default function SkillsPage() {
   const getLevelColor = (level: Level) => {
     switch (level) {
       case "Expert":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-green-500/20 text-green-300 border-green-500/30";
       case "Advanced":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-blue-500/20 text-blue-300 border-blue-500/30";
       case "Intermediate":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30";
       case "Beginner":
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-slate-700/50 text-slate-300 border-slate-600/50";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-slate-700/50 text-slate-300 border-slate-600/50";
     }
   };
 
@@ -103,14 +103,14 @@ export default function SkillsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Technical Skills
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             A comprehensive overview of my technical expertise and professional
             capabilities across different domains.
           </p>
@@ -121,10 +121,10 @@ export default function SkillsPage() {
           {groups.map((group, groupIndex) => (
             <div
               key={group.title}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-700/50 hover:border-blue-500/30"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center">
                   <span className="text-2xl">
                     {groupIndex === 0 && "💻"}
                     {groupIndex === 1 && "⚙️"}
@@ -132,7 +132,7 @@ export default function SkillsPage() {
                     {groupIndex === 3 && "👥"}
                   </span>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-2xl font-bold text-white">
                   {group.title}
                 </h2>
               </div>
@@ -141,12 +141,12 @@ export default function SkillsPage() {
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group p-4 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300"
+                    className="group p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-gray-900 text-lg">
+                          <h3 className="font-semibold text-white text-lg">
                             {skill.name}
                           </h3>
                           <span className="text-lg">
@@ -154,7 +154,7 @@ export default function SkillsPage() {
                           </span>
                         </div>
                         {skill.note && (
-                          <p className="text-sm text-gray-600 leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {skill.note}
                           </p>
                         )}
@@ -175,9 +175,9 @@ export default function SkillsPage() {
         </div>
 
         {/* Core Stack Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-16">
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Core Technology Stack
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
@@ -191,7 +191,7 @@ export default function SkillsPage() {
               ].map((tech) => (
                 <div
                   key={tech}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
                   {tech}
                 </div>
@@ -201,48 +201,48 @@ export default function SkillsPage() {
         </div>
 
         {/* Experience Timeline */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Skill Development Journey
           </h2>
           <div className="space-y-6">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-200">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-500/10 border border-blue-500/30">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
                 1
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">
+                <h3 className="font-semibold text-white">
                   Foundation Building
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-slate-300">
                   Started with core web technologies and programming
                   fundamentals
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-green-50 border border-green-200">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-green-500/10 border border-green-500/30">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
                 2
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">
+                <h3 className="font-semibold text-white">
                   Framework Mastery
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-slate-300">
                   Deep dive into React, Next.js, and modern development
                   practices
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-200">
-              <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                 3
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">
+                <h3 className="font-semibold text-white">
                   Professional Growth
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-slate-300">
                   Applied skills in real-world projects and team environments
                 </p>
               </div>
@@ -251,7 +251,7 @@ export default function SkillsPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+        <div className="text-center bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-12 text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl mb-8 opacity-90">
             I&apos;m always excited to take on new challenges and learn new
@@ -260,7 +260,7 @@ export default function SkillsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white rounded-xl font-semibold text-lg hover:bg-slate-800 border border-slate-700/50 transition-all"
             >
               <svg
                 className="h-5 w-5"
@@ -279,7 +279,7 @@ export default function SkillsPage() {
             </a>
             <a
               href="/projects"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
             >
               <svg
                 className="h-5 w-5"
