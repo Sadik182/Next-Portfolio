@@ -254,13 +254,13 @@ export default function AboutPage() {
             {education.map((ed) => (
               <div
                 key={ed.degree}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                className="rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-700/50 hover:border-blue-500/30 group"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                    <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30 transition-colors">
                       <svg
-                        className="h-6 w-6 text-blue-600"
+                        className="h-6 w-6 text-blue-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -279,8 +279,8 @@ export default function AboutPage() {
                         />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-2">
                         {ed.degree}
                       </h3>
                       <p className="text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
@@ -288,7 +288,7 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="text-sm font-medium text-slate-300 bg-slate-700/50 px-4 py-2 rounded-full">
+                  <div className="text-sm font-semibold text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 px-4 py-2 rounded-full whitespace-nowrap">
                     {ed.period}
                   </div>
                 </div>
