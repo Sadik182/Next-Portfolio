@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-slate-900 text-white">
+      <body className="bg-slate-900 text-white" suppressHydrationWarning>
         <Navbar />
         <main className="pt-20">{children}</main>
       </body>

@@ -144,12 +144,12 @@ export default function Hero() {
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Crafting exceptional digital experiences with modern web
-              technologies. Specialized in building scalable, performant
-              applications using{" "}
+              A passionate <strong>Software Developer</strong> based in Sydney,
+              crafting modern web applications with.{" "}
               <span className="text-blue-400 font-semibold">Next.js</span>,{" "}
               <span className="text-blue-400 font-semibold">TypeScript</span>,
-              and <span className="text-blue-400 font-semibold">MongoDB</span>.
+              and <span className="text-blue-400 font-semibold">MongoDB</span>.I
+              turn complex problems into simple, elegant solutions.
             </motion.p>
 
             {/* Location & Role Badge */}
