@@ -43,7 +43,7 @@ const EXPERIENCES: Experience[] = [
     role: "Software Developer (Internship)",
     employmentType: "Internship",
     start: "Mar 2025",
-    end: "Jul 2025",
+    end: "Jun 2025",
     location: "Sydney, New South Wales, Australia · On-site",
     description:
       "Worked closely with senior developers on scalable, user‑friendly platforms in the asset‑finance domain, strengthening practical coding skills and modern frontend patterns.",

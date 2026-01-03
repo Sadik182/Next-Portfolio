@@ -23,7 +23,7 @@ const projects = [
     codeUrl: "https://github.com/Sadik182/Next-Portfolio",
     technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
     status: "Completed",
-    year: "2024",
+    year: "2025",
     features: ["SSR/SSG", "Responsive Design", "Contact Form"],
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     codeUrl: "https://github.com/Sadik182/ToDoList",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
     status: "In Progress",
-    year: "2024",
+    year: "2025",
     features: [
       "Task Management",
       "Local Storage",
@@ -54,7 +54,7 @@ const projects = [
     codeUrl: "https://github.com/Sadik182/GoalFlow",
     technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
     status: "In Progress",
-    year: "2024",
+    year: "2025",
     features: [
       "Goal Tracking",
       "Progress Monitoring",
@@ -85,7 +85,7 @@ const projects = [
     codeUrl: "https://github.com/Sadik182/SR-Ecommerce-.git",
     technologies: ["JavaScript", "HTML5", "CSS3", "Responsive Design"],
     status: "Completed",
-    year: "2023",
+    year: "2022",
     features: [
       "Product Catalog",
       "Shopping Cart",
@@ -122,7 +122,7 @@ const projects = [
     codeUrl: "https://github.com/Sadik182/Amazon-Clone",
     technologies: ["Next.js", "Redux", "Stripe", "Webhooks", "TypeScript"],
     status: "Completed",
-    year: "2024",
+    year: "2026",
     features: [
       "User Authentication",
       "Payment Processing",

@@ -22,9 +22,10 @@ import {
 
 const roles = [
   "Software Developer",
+  "Software Engineer",
+  "Full Stack Developer",
   "Full Stack Engineer",
-  "Web Developer",
-  "Next.js Specialist",
+  "Next.js Developer",
 ];
 
 export default function Hero() {
