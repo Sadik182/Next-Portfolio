@@ -10,10 +10,73 @@ import image3 from "@/assets/images/3.jpg";
 import image4 from "@/assets/images/4.jpg";
 import image5 from "@/assets/images/5.jpg";
 import image7 from "@/assets/images/7.jpg";
+import amazonImage from "@/assets/images/amazon.png";
 
 const projects = [
   {
     id: 1,
+    title: "Personal Portfolio",
+    description:
+      "A modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark/light mode, smooth animations, and optimized performance with server-side rendering.",
+    image: image3,
+    liveUrl: "https://sadik1820.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/Next-Portfolio",
+    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    status: "Completed",
+    year: "2024",
+    features: ["SSR/SSG", "Responsive Design", "Contact Form"],
+  },
+  {
+    id: 2,
+    title: "ToDoList App",
+    description:
+      "A modern task management application built with Next.js and TypeScript. Features task creation, editing, deletion, and local storage persistence for seamless user experience.",
+    image: image4,
+    liveUrl: "https://to-do-list-theta-gray.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/ToDoList",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
+    status: "In Progress",
+    year: "2024",
+    features: [
+      "Task Management",
+      "Local Storage",
+      "Responsive Design",
+      "TypeScript",
+    ],
+  },
+  {
+    id: 3,
+    title: "GoalFlow",
+    description:
+      "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Built with modern web technologies for optimal performance.",
+    image: image5,
+    liveUrl: "https://goal-flow-liard.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/GoalFlow",
+    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
+    status: "In Progress",
+    year: "2024",
+    features: [
+      "Goal Tracking",
+      "Progress Monitoring",
+      "User Dashboard",
+      "Vercel Deployment",
+    ],
+  },
+  {
+    id: 4,
+    title: "Expense Tracker ",
+    description:
+      "A expense tracking application designed to help users track their expenses. Built with modern web technologies for optimal performance.",
+    image: image7,
+    liveUrl: "https://expense-tracker-next-js.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/Expense-Tracker-Next-JS",
+    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
+    status: "In Progress",
+    year: "2025",
+    features: ["Expense Tracking", "User Dashboard", "Vercel Deployment"],
+  },
+  {
+    id: 5,
     title: "Red Store E-commerce",
     description:
       "A fully responsive e-commerce website featuring product catalog, shopping cart, and checkout functionality. Built with vanilla JavaScript for optimal performance and cross-browser compatibility.",
@@ -31,7 +94,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 6,
     title: "MacBook Pro Store",
     description:
       "An interactive product showcase and purchase simulator for MacBook Pro. Features dynamic pricing, configuration options, and smooth animations to enhance user experience.",
@@ -50,66 +113,22 @@ const projects = [
     ],
   },
   {
-    id: 3,
-    title: "Personal Portfolio",
+    id: 7,
+    title: "Amazon Clone",
     description:
-      "A modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark/light mode, smooth animations, and optimized performance with server-side rendering.",
-    image: image3,
-    liveUrl: "https://sadik1820.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/Next-Portfolio",
-    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "A full-featured e-commerce platform clone of Amazon built with Next.js. Features include user authentication, product catalog, shopping cart with Redux state management, secure payment processing with Stripe, and webhook integration for order management.",
+    image: amazonImage,
+    liveUrl: "https://amazon-clone-gamma-livid.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/Amazon-Clone",
+    technologies: ["Next.js", "Redux", "Stripe", "Webhooks", "TypeScript"],
     status: "Completed",
     year: "2024",
-    features: ["SSR/SSG", "Responsive Design", "Contact Form"],
-  },
-  {
-    id: 4,
-    title: "ToDoList App",
-    description:
-      "A modern task management application built with Next.js and TypeScript. Features task creation, editing, deletion, and local storage persistence for seamless user experience.",
-    image: image4,
-    liveUrl: "https://github.com/Sadik182/ToDoList",
-    codeUrl: "https://github.com/Sadik182/ToDoList",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
-    status: "In Progress",
-    year: "2024",
     features: [
-      "Task Management",
-      "Local Storage",
-      "Responsive Design",
-      "TypeScript",
+      "User Authentication",
+      "Payment Processing",
+      "Order Management",
+      "Webhook Integration",
     ],
-  },
-  {
-    id: 5,
-    title: "GoalFlow",
-    description:
-      "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Built with modern web technologies for optimal performance.",
-    image: image5,
-    liveUrl: "https://goal-flow-liard.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/GoalFlow",
-    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
-    status: "In Progress",
-    year: "2024",
-    features: [
-      "Goal Tracking",
-      "Progress Monitoring",
-      "User Dashboard",
-      "Vercel Deployment",
-    ],
-  },
-  {
-    id: 6,
-    title: "Expense Tracker ",
-    description:
-      "A expense tracking application designed to help users track their expenses. Built with modern web technologies for optimal performance.",
-    image: image7,
-    liveUrl: "https://expense-tracker-next-js.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/Expense-Tracker-Next-JS",
-    technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
-    status: "In Progress",
-    year: "2025",
-    features: ["Expense Tracking", "User Dashboard", "Vercel Deployment"],
   },
 ];
 
