@@ -4,21 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink, Calendar, Code } from "lucide-react";
 
-import image1 from "@/assets/images/1.jpg";
-import image2 from "@/assets/images/2.jpg";
-import image3 from "@/assets/images/3.jpg";
-import image4 from "@/assets/images/4.jpg";
-import image5 from "@/assets/images/5.jpg";
-import image7 from "@/assets/images/7.jpg";
-import amazonImage from "@/assets/images/amazon.png";
-
 const projects = [
   {
     id: 1,
     title: "Personal Portfolio",
     description:
       "A modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark/light mode, smooth animations, and optimized performance with server-side rendering.",
-    image: image3,
+    image: "/images/3.jpg",
     liveUrl: "https://sadik1820.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Next-Portfolio",
     technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
@@ -31,7 +23,7 @@ const projects = [
     title: "ToDoList App",
     description:
       "A modern task management application built with Next.js and TypeScript. Features task creation, editing, deletion, and local storage persistence for seamless user experience.",
-    image: image4,
+    image: "/images/4.jpg",
     liveUrl: "https://to-do-list-theta-gray.vercel.app/",
     codeUrl: "https://github.com/Sadik182/ToDoList",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
@@ -49,7 +41,7 @@ const projects = [
     title: "GoalFlow",
     description:
       "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Built with modern web technologies for optimal performance.",
-    image: image5,
+    image: "/images/5.jpg",
     liveUrl: "https://goal-flow-liard.vercel.app/",
     codeUrl: "https://github.com/Sadik182/GoalFlow",
     technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
@@ -67,7 +59,7 @@ const projects = [
     title: "Expense Tracker ",
     description:
       "A expense tracking application designed to help users track their expenses. Built with modern web technologies for optimal performance.",
-    image: image7,
+    image: "/images/7.jpg",
     liveUrl: "https://expense-tracker-next-js.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Expense-Tracker-Next-JS",
     technologies: ["Next.js", "TypeScript", "Vercel", "Modern UI"],
@@ -80,7 +72,7 @@ const projects = [
     title: "Red Store E-commerce",
     description:
       "A fully responsive e-commerce website featuring product catalog, shopping cart, and checkout functionality. Built with vanilla JavaScript for optimal performance and cross-browser compatibility.",
-    image: image1,
+    image: "/images/1.jpg",
     liveUrl: "https://sadik182.github.io/SR-Ecommerce-/",
     codeUrl: "https://github.com/Sadik182/SR-Ecommerce-.git",
     technologies: ["JavaScript", "HTML5", "CSS3", "Responsive Design"],
@@ -98,7 +90,7 @@ const projects = [
     title: "MacBook Pro Store",
     description:
       "An interactive product showcase and purchase simulator for MacBook Pro. Features dynamic pricing, configuration options, and smooth animations to enhance user experience.",
-    image: image2,
+    image: "/images/2.jpg",
     liveUrl: "https://sadik182.github.io/Buy-Mack-Book-Pro-Simple-JavaScript/",
     codeUrl:
       "https://github.com/Sadik182/Buy-Mack-Book-Pro-Simple-JavaScript.git",
@@ -117,7 +109,7 @@ const projects = [
     title: "Amazon Clone",
     description:
       "A full-featured e-commerce platform clone of Amazon built with Next.js. Features include user authentication, product catalog, shopping cart with Redux state management, secure payment processing with Stripe, and webhook integration for order management.",
-    image: amazonImage,
+    image: "/images/amazon.png",
     liveUrl: "https://amazon-clone-gamma-livid.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Amazon-Clone",
     technologies: ["Next.js", "Redux", "Stripe", "Webhooks", "TypeScript"],
