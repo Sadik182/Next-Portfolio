@@ -140,6 +140,7 @@ export default function ContactPage() {
                     className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                     placeholder="john@example.com"
                     aria-invalid={!!errors.email}
+                    suppressHydrationWarning
                   />
                   {errors.email && (
                     <p className="text-sm text-red-600 flex items-center gap-1">
