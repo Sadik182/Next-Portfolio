@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — Md Sadikur Rahman",
+  title: "Contact",
   description:
-    "Get in touch with Md Sadikur Rahman, Junior Software Developer in Sydney. Available for projects, collaborations, and opportunities.",
-  keywords: [
-    "contact",
-    "software developer",
-    "Sydney",
-    "Next.js",
-    "TypeScript",
-    "web development",
-  ],
+    "Get in touch with Md Sadikur Rahman, Software Developer in Sydney. Available for projects, collaborations, and opportunities.",
   openGraph: {
     title: "Contact — Md Sadikur Rahman",
     description:
-      "Get in touch with Md Sadikur Rahman, Junior Software Developer in Sydney. Available for projects, collaborations, and opportunities.",
+      "Get in touch with Md Sadikur Rahman, Software Developer in Sydney. Available for projects, collaborations, and opportunities.",
     type: "website",
   },
 };

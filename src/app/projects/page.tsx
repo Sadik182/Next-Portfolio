@@ -1,12 +1,12 @@
-import ProjectsPage from '@/components/Projects/Projects'
-import React from 'react'
+import type { Metadata } from "next";
+import ProjectsPage from "@/components/Projects/Projects";
 
-const page = () => {
-  return (
-    <div>
-        <ProjectsPage />
-    </div>
-  )
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Projects by Md Sadikur Rahman — full-stack web applications built with Next.js, TypeScript, and modern tools.",
+};
+
+export default function Page() {
+  return <ProjectsPage />;
 }
-
-export default page

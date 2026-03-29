@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn/FadeIn";
 
 // If you have this image already (you used it in Hero)
 import profilePic from "../../../public/images/YOUX_profile.jpg";
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const highlights = [
-  { label: "Role", value: "Software Developer @ YouX Powered" },
-  { label: "Location", value: "Sydney, Australia" },
-  { label: "Stack", value: "Next.js, TypeScript, MongoDB, Tailwind" },
-  { label: "Focus", value: "Performance, clean UI, maintainable code" },
+  { stat: "1+", label: "Years Experience", value: "Software Developer @ YouX Powered" },
+  { stat: "5+", label: "Projects Shipped", value: "Full-stack web applications" },
+  { stat: "4+", label: "Core Technologies", value: "Next.js, TypeScript, MongoDB, Tailwind" },
+  { stat: "3", label: "Degrees & Diplomas", value: "Master of IT, BSc CS, Diploma" },
 ];
 
 const education = [
@@ -42,6 +43,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
+        <FadeIn>
         <section className="text-center mb-20">
           <div className="relative inline-block mb-8">
             <div className="relative h-48 w-48 mx-auto overflow-hidden rounded-3xl shadow-2xl ring-4 ring-slate-700/50">
@@ -86,8 +88,8 @@ export default function AboutPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/"
-              download
+              href="/Resume.pdf"
+              target="_blank"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <svg
@@ -126,20 +128,19 @@ export default function AboutPage() {
             </Link>
           </div>
         </section>
+        </FadeIn>
 
         {/* Quick Stats */}
+        <FadeIn delay={0.1}>
         <section className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {highlights.map((highlight, index) => (
+            {highlights.map((highlight) => (
               <div
                 key={highlight.label}
                 className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-700/50 hover:border-blue-500/30"
               >
                 <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                  {index === 0 && "2+"}
-                  {index === 1 && "Sydney"}
-                  {index === 2 && "4+"}
-                  {index === 3 && "100%"}
+                  {highlight.stat}
                 </div>
                 <div className="text-sm font-semibold text-white mb-1">
                   {highlight.label}
@@ -149,8 +150,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
 
         {/* What I Do */}
+        <FadeIn delay={0.1}>
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">What I Do</h2>
@@ -239,8 +242,10 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* Education */}
+        <FadeIn delay={0.1}>
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Education</h2>
@@ -296,8 +301,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
 
         {/* Personal Touch */}
+        <FadeIn delay={0.1}>
         <section className="mb-20">
           <div className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-3xl p-12 text-white text-center">
             <h2 className="text-4xl font-bold mb-6">Beyond the Code</h2>
@@ -323,8 +330,10 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
         {/* Call to Action */}
+        <FadeIn delay={0.1}>
         <section className="text-center">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
             <h2 className="text-4xl font-bold text-white mb-6">
@@ -377,6 +386,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
       </div>
     </main>
   );

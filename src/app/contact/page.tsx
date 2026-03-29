@@ -245,7 +245,7 @@ export default function ContactPage() {
 
                 <div role="status" aria-live="polite" className="min-h-6">
                   {status === "success" && (
-                    <div className="flex items-center gap-2 text-emerald-700">
+                    <div className="flex items-center gap-2 text-emerald-400">
                       <svg
                         className="h-5 w-5"
                         fill="currentColor"

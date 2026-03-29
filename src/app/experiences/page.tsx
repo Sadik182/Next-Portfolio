@@ -1,6 +1,12 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Calendar, MapPin } from "lucide-react";
+import FadeIn from "@/components/FadeIn/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Professional experience of Md Sadikur Rahman — Software Developer roles, internships, and volunteer work.",
+};
 
 // ---- Data model -----------------------------------------------------------
 
@@ -233,6 +239,7 @@ export default function ExperiencePage() {
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
+        <FadeIn>
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Professional Experience
@@ -242,6 +249,7 @@ export default function ExperiencePage() {
             contributions across various roles and organizations.
           </p>
         </header>
+        </FadeIn>
 
         {/* Timeline Container */}
         <div className="relative">
@@ -251,15 +259,15 @@ export default function ExperiencePage() {
           {/* Experience Cards */}
           <section className="space-y-8">
             {EXPERIENCES.map((exp, i) => (
-              <ExperienceCard
-                key={`${exp.company}-${exp.role}-${i}`}
-                exp={exp}
-              />
+              <FadeIn key={`${exp.company}-${exp.role}-${i}`} delay={i * 0.05}>
+                <ExperienceCard exp={exp} />
+              </FadeIn>
             ))}
           </section>
         </div>
 
         {/* Footer CTA */}
+        <FadeIn delay={0.1}>
         <div className="mt-16 text-center bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-slate-700/50">
           <h2 className="text-2xl font-bold text-white mb-4">
             Ready to work together?
@@ -288,6 +296,7 @@ export default function ExperiencePage() {
             </svg>
           </a>
         </div>
+        </FadeIn>
       </div>
     </main>
   );

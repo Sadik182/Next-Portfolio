@@ -1,4 +1,12 @@
 // app/skills/page.tsx
+import type { Metadata } from "next";
+import FadeIn from "@/components/FadeIn/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Skills",
+  description:
+    "Technical skills of Md Sadikur Rahman — Next.js, TypeScript, React, MongoDB, Tailwind CSS, and more.",
+};
 
 type Level = "Beginner" | "Intermediate" | "Advanced" | "Expert";
 
@@ -106,6 +114,7 @@ export default function SkillsPage() {
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
+        <FadeIn>
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Technical Skills
@@ -115,8 +124,10 @@ export default function SkillsPage() {
             capabilities across different domains.
           </p>
         </header>
+        </FadeIn>
 
         {/* Skills Grid */}
+        <FadeIn delay={0.1}>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-16">
           {groups.map((group, groupIndex) => (
             <div
@@ -173,8 +184,10 @@ export default function SkillsPage() {
             </div>
           ))}
         </div>
+        </FadeIn>
 
         {/* Core Stack Section */}
+        <FadeIn delay={0.1}>
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-white mb-6">
@@ -199,8 +212,10 @@ export default function SkillsPage() {
             </div>
           </div>
         </div>
+        </FadeIn>
 
         {/* Experience Timeline */}
+        <FadeIn delay={0.1}>
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
           <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Skill Development Journey
@@ -249,8 +264,10 @@ export default function SkillsPage() {
             </div>
           </div>
         </div>
+        </FadeIn>
 
         {/* Call to Action */}
+        <FadeIn delay={0.1}>
         <div className="text-center bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-12 text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -298,6 +315,7 @@ export default function SkillsPage() {
             </a>
           </div>
         </div>
+        </FadeIn>
       </div>
     </main>
   );
