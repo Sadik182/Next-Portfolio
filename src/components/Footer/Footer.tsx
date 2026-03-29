@@ -29,10 +29,10 @@ export default function Footer() {
           ))}
           <span className="text-slate-700 mx-1">|</span>
           <a
-            href="mailto:sadikurrahman728@gmail.com"
+            href="mailto:sadikcqu@gmail.com"
             className="text-sm text-slate-500 hover:text-blue-400 transition-colors"
           >
-            sadikurrahman728@gmail.com
+            sadikcqu@gmail.com
           </a>
         </div>
       </div>

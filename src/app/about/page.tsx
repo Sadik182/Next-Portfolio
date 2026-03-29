@@ -90,6 +90,7 @@ export default function AboutPage() {
             <Link
               href="/Resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <svg

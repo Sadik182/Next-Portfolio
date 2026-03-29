@@ -87,11 +87,11 @@ const EXPERIENCES: Experience[] = [
     company: "IUBAT IT Society",
     role: "Assistant Academic Manager",
     employmentType: "Volunteer",
-    start: "Jun 2021",
+    start: "Jun 2019",
     end: "Jan 2022",
     description:
-      "Mentored peers on technical topics and guided juniors through learning paths and projects.",
-    skills: ["Mentoring", "Leadership"],
+      "Mentored peers on technical topics, guided juniors through learning paths, and coordinated academic wing operations including scheduling mentoring classes.",
+    skills: ["Mentoring", "Leadership", "Coordination"],
   },
   {
     company: "IUBAT",
@@ -118,16 +118,6 @@ const EXPERIENCES: Experience[] = [
     description:
       "Organised student activities and tech events; helped connect students with industry resources.",
     skills: ["Community", "Organising"],
-  },
-  {
-    company: "IUBAT IT Society",
-    role: "Assistant Academic Manager",
-    employmentType: "Volunteer",
-    start: "Jun 2019",
-    end: "Jun 2020",
-    description:
-      "Coordinated academic wing operations—scheduling mentoring classes and assisting students with academic issues.",
-    skills: ["Coordination", "Leadership", "Operations"],
   },
 ];
 

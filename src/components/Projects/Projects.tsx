@@ -106,7 +106,7 @@ const projects: Project[] = [
     title: "AI Document Chat",
     description:
       "A full-stack app where users can upload PDFs and chat with them using the Claude API. Built with RAG to pull relevant context from documents before generating answers. Uses vector embeddings for semantic search.",
-    image: "/images/placeholder-ai-doc.jpg",
+    image: "",
     technologies: [
       "Next.js 15",
       "Claude API",
