@@ -167,7 +167,7 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* AI-Era Projects Section */}
+        {/* AI-Era Projects Section — uncomment when ready to showcase
         <div className="mb-16">
           <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
             <Sparkles size={22} className="text-amber-400" />
@@ -186,6 +186,7 @@ export default function ProjectsPage() {
               ))}
           </div>
         </div>
+        */}
 
         {/* Call to Action */}
         <div className="text-center mt-16">
