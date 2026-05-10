@@ -24,6 +24,25 @@ interface Project {
 // ── Project Data ───────────────────────────────────────────────────────
 const projects: Project[] = [
   {
+    id: 6,
+    title: "SolarCRM",
+    description:
+      "A CRM built for Australian solar installers: manage leads end-to-end, generate AI-assisted quotes with STC rebate calculations from roof photos and bills, track installs on Kanban boards with checklists and payments, and monitor revenue and pipeline health from a business dashboard. Data hosted in Sydney.",
+    image: "/images/solarcrm.png",
+    liveUrl: "https://solar-crm-eight.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    status: "Completed",
+    year: "2026",
+    features: [
+      "Lead pipeline from contact to signed contract",
+      "AI-powered quotes and STC rebate calculations",
+      "Job tracking with Kanban, checklists, and payments",
+      "Business dashboard for KPIs and pipeline metrics",
+    ],
+    highlight: true,
+  },
+  {
     id: 1,
     title: "Amazon Clone",
     description:
@@ -40,7 +59,6 @@ const projects: Project[] = [
       "Order Management",
       "Webhook Integration",
     ],
-    highlight: true,
   },
   {
     id: 2,
@@ -48,16 +66,17 @@ const projects: Project[] = [
     description:
       "A expense tracking application designed to help users track their expenses. Built with Next.js and TypeScript with a clean dashboard to view spending by category, add new entries, and monitor monthly budgets.",
     image: "/images/7.jpg",
-    liveUrl: "https://expense-tracker-next-js.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/Expense-Tracker-Next-JS",
+    liveUrl: "https://sr-expense-tracker.vercel.app/",
+    codeUrl: "https://github.com/Sadik182/",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     status: "Completed",
     year: "2025",
     features: [
-      "Expense Tracking",
+      "Personal & Family Expense Tracking",
+      "Events Expense Tracking",
       "Category Breakdown",
-      "User Dashboard",
       "Responsive Design",
+      "User Dashboard",
     ],
   },
   {
@@ -86,12 +105,7 @@ const projects: Project[] = [
     image: "/images/portfolio.png",
     liveUrl: "https://sadik1820.vercel.app/",
     codeUrl: "https://github.com/Sadik182/Next-Portfolio",
-    technologies: [
-      "Next.js 15",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-    ],
+    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
     status: "Completed",
     year: "2025",
     features: [
@@ -194,8 +208,8 @@ export default function ProjectsPage() {
             Interested in working together?
           </h2>
           <p className="text-slate-300 mb-6">
-            I&apos;m always excited to work on new projects and collaborate
-            with fellow developers.
+            I&apos;m always excited to work on new projects and collaborate with
+            fellow developers.
           </p>
           <Link
             href="/contact"
