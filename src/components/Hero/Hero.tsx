@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import profilePic from "../../../public/images/YOUX_profile.jpg";
+import profilePic from "../../../public/images/Profile.png";
 import {
   FaGithub,
   FaLinkedin,
@@ -15,7 +15,10 @@ import {
 } from "react-icons/fa";
 import {
   SiNextdotjs,
+  SiReact,
   SiTypescript,
+  SiNodedotjs,
+  SiAmazonwebservices,
   SiMongodb,
   SiTailwindcss,
 } from "react-icons/si";
@@ -83,7 +86,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      className="relative min-h-screen flex items-start justify-center overflow-x-hidden pt-8 pb-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
       aria-labelledby="home-title"
     >
       {/* Animated Grid Background */}
@@ -148,9 +151,10 @@ export default function Hero() {
               A passionate <strong>Software Developer</strong> based in Sydney,
               crafting modern web applications with{" "}
               <span className="text-blue-400 font-semibold">Next.js</span>,{" "}
-              <span className="text-blue-400 font-semibold">TypeScript</span>,
-              and <span className="text-blue-400 font-semibold">MongoDB</span>.
-              I turn complex problems into simple, elegant solutions.
+              <span className="text-blue-400 font-semibold">TypeScript</span>,{" "}
+              <span className="text-blue-400 font-semibold">Node.js</span>, and{" "}
+              <span className="text-blue-400 font-semibold">MongoDB</span>. I
+              turn complex problems into simple, elegant solutions.
             </motion.p>
 
             {/* Location & Role Badge */}
@@ -175,17 +179,34 @@ export default function Hero() {
               variants={itemVariants}
               className="flex items-center gap-4 justify-center lg:justify-start pt-2"
             >
-              <p className="text-slate-500 text-sm mr-2">Tech Stack:</p>
-              <div className="flex gap-3">
+              <p className="text-slate-300 text-sm font-medium mr-2">
+                Tech Stack:
+              </p>
+              <div className="flex flex-wrap gap-3">
                 <SiNextdotjs
                   className="text-slate-400 hover:text-white transition-colors"
                   size={28}
                   title="Next.js"
                 />
+                <SiReact
+                  className="text-slate-400 hover:text-cyan-300 transition-colors"
+                  size={28}
+                  title="React"
+                />
                 <SiTypescript
                   className="text-slate-400 hover:text-blue-400 transition-colors"
                   size={28}
                   title="TypeScript"
+                />
+                <SiNodedotjs
+                  className="text-slate-400 hover:text-green-500 transition-colors"
+                  size={28}
+                  title="Node.js"
+                />
+                <SiAmazonwebservices
+                  className="text-slate-400 hover:text-orange-400 transition-colors"
+                  size={28}
+                  title="AWS"
                 />
                 <SiMongodb
                   className="text-slate-400 hover:text-green-400 transition-colors"

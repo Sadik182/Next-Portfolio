@@ -143,19 +143,19 @@ const projects: Project[] = [
 function statusClasses(status: ProjectStatus): string {
   switch (status) {
     case "Completed":
-      return "bg-green-500/20 text-green-300 border border-green-500/30";
+      return "bg-emerald-500/90 text-white border border-emerald-300/40";
     case "In Progress":
-      return "bg-blue-500/20 text-blue-300 border border-blue-500/30";
+      return "bg-blue-500/90 text-white border border-blue-300/40";
     case "Coming Soon":
-      return "bg-amber-500/20 text-amber-300 border border-amber-500/30";
+      return "bg-amber-500/90 text-white border border-amber-300/40";
   }
 }
 
 // ── Component ──────────────────────────────────────────────────────────
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white px-2 py-12 top-20">
-      <div className="px-8">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-12">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Featured Projects</h1>
@@ -252,14 +252,14 @@ function ProjectCard({ project }: { project: Project }) {
         )}
         <div className="absolute top-4 right-4">
           <span
-            className={`px-3 py-1 rounded-full text-xs font-medium ${statusClasses(project.status)}`}
+            className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-md ${statusClasses(project.status)}`}
           >
             {project.status}
           </span>
         </div>
         {project.highlight && (
           <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-md bg-purple-500/90 text-white border border-purple-300/40">
               Featured
             </span>
           </div>

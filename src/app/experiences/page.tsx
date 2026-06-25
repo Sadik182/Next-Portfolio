@@ -18,6 +18,7 @@ type Experience = {
   end: string;
   location?: string;
   description?: string;
+  highlights?: string[];
   skills?: string[];
   links?: { label: string; href: string }[];
 };
@@ -33,15 +34,24 @@ const EXPERIENCES: Experience[] = [
     end: "Present",
     location: "Sydney, New South Wales, Australia · On-site",
     description:
-      "I develop and maintain web applications using Next.js, TypeScript, and MongoDB—shipping features, fixing bugs, and improving performance for a smooth, user‑friendly experience.",
+      "Full‑stack developer on Manage 2.0, the core platform behind DriveIQ — an asset‑finance product used by brokers, dealers and lenders across Australia and New Zealand. I take features from first discussion through to deployment across the React frontend, Node.js services and AWS infrastructure.",
+    highlights: [
+      "Built large parts of Manage 2.0 — dashboard, worklist, kanban board, Quick Quote flow and user/organisation management — with Next.js, React, TypeScript, Node.js APIs and MongoDB.",
+      "Shipped an automated user‑agreement feature end to end: an admin template editor with dynamic fields, organisation assignment and draft/published/archived version control, live across all production instances.",
+      "Built a runtime privacy‑document generator that merges organisation and lender forms with application data into a single filled PDF, replacing a manual process.",
+      "Published a shared AWS KMS encryption and logging package to a private Verdaccio registry and rolled it out across 8 microservices, and moved services onto IAM‑role auth with environment‑isolated S3 buckets.",
+    ],
     skills: [
       "Next.js",
+      "React",
       "TypeScript",
+      "Node.js",
       "MongoDB",
+      "AWS",
+      "Storybook",
       "Tailwind",
       "Git",
       "Jira",
-      "Bitbucket",
     ],
   },
   {
@@ -52,8 +62,12 @@ const EXPERIENCES: Experience[] = [
     end: "Jun 2025",
     location: "Sydney, New South Wales, Australia · On-site",
     description:
-      "Worked closely with senior developers on scalable, user‑friendly platforms in the asset‑finance domain, strengthening practical coding skills and modern frontend patterns.",
-    skills: ["Next.js", "TypeScript", "MongoDB", "Git"],
+      "Joined the DriveIQ team from the first sprint, working on Manage 2.0 across Next.js, React, TypeScript, Node.js and MongoDB. Moved into a full‑time role after four months.",
+    highlights: [
+      "Shipped production fixes across the Quick Quote flows, user and organisation management, and document workflows.",
+      "Worked with QA and Support to resolve customer‑reported issues in the asset‑finance platform.",
+    ],
+    skills: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB", "Git"],
   },
   {
     company: "Flair Group Bangladesh",
@@ -169,6 +183,21 @@ function ExperienceCard({ exp }: { exp: Experience }) {
           </p>
         )}
 
+        {/* Highlights */}
+        {exp.highlights && exp.highlights.length > 0 && (
+          <ul className="space-y-2 mb-4">
+            {exp.highlights.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex gap-2.5 text-slate-300 leading-relaxed text-sm sm:text-base"
+              >
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
         {/* Skills */}
         {exp.skills && exp.skills.length > 0 && (
           <div className="mb-4">
@@ -227,7 +256,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
 export default function ExperiencePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 py-12">
         {/* Header Section */}
         <FadeIn>
         <header className="text-center mb-16">

@@ -112,7 +112,7 @@ export default function SkillsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 py-12">
         {/* Header Section */}
         <FadeIn>
         <header className="text-center mb-16">
