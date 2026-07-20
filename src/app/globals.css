@@ -4,6 +4,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Tailwind v4 removed the default pointer cursor on buttons — restore it */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
 .dark {
   color-scheme: dark;
 }

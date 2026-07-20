@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { User, Mail, Send, Loader2 } from "lucide-react";
 
 const ContactSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
@@ -49,29 +50,29 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16 py-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-12">
         {/* Hero Section */}
-        <section className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+        <section className="text-center mb-12 md:mb-20">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 md:mb-6">
             Let&apos;s{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Connect
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             Have a project in mind? Want to collaborate? Or just want to say hi?
             I&apos;d love to hear from you. Let&apos;s start a conversation.
           </p>
         </section>
 
         {/* Contact Form Section */}
-        <section className="mb-20">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
+        <section className="mb-12 md:mb-20">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-12 shadow-xl border border-slate-700/50">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                 Send me a message
               </h2>
-              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-slate-300 max-w-2xl mx-auto">
                 Fill out the form below and I&apos;ll get back to you as soon as
                 possible.
               </p>
@@ -92,24 +93,31 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid md:grid-cols-2 gap-5 md:gap-6 mb-5 md:mb-6">
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-white"
+                    className="block text-sm font-medium text-slate-200"
                   >
-                    Full Name *
+                    Full Name <span className="text-blue-400">*</span>
                   </label>
-                  <input
-                    id="name"
-                    type="text"
-                    {...register("name")}
-                    className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-                    placeholder="John Doe"
-                    aria-invalid={!!errors.name}
-                  />
+                  <div className="relative">
+                    <User
+                      className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500"
+                      aria-hidden="true"
+                    />
+                    <input
+                      id="name"
+                      type="text"
+                      autoComplete="name"
+                      {...register("name")}
+                      className="w-full rounded-xl border border-slate-600/80 bg-slate-900/40 pl-12 pr-4 py-3.5 text-base text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-slate-900/60 transition-all duration-200"
+                      placeholder="John Doe"
+                      aria-invalid={!!errors.name}
+                    />
+                  </div>
                   {errors.name && (
-                    <p className="text-sm text-red-600 flex items-center gap-1">
+                    <p className="text-sm text-red-400 flex items-center gap-1">
                       <svg
                         className="h-4 w-4"
                         fill="currentColor"
@@ -129,21 +137,28 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-white"
+                    className="block text-sm font-medium text-slate-200"
                   >
-                    Email Address *
+                    Email Address <span className="text-blue-400">*</span>
                   </label>
-                  <input
-                    id="email"
-                    type="email"
-                    {...register("email")}
-                    className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-                    placeholder="john@example.com"
-                    aria-invalid={!!errors.email}
-                    suppressHydrationWarning
-                  />
+                  <div className="relative">
+                    <Mail
+                      className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500"
+                      aria-hidden="true"
+                    />
+                    <input
+                      id="email"
+                      type="email"
+                      autoComplete="email"
+                      {...register("email")}
+                      className="w-full rounded-xl border border-slate-600/80 bg-slate-900/40 pl-12 pr-4 py-3.5 text-base text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-slate-900/60 transition-all duration-200"
+                      placeholder="john@example.com"
+                      aria-invalid={!!errors.email}
+                      suppressHydrationWarning
+                    />
+                  </div>
                   {errors.email && (
-                    <p className="text-sm text-red-600 flex items-center gap-1">
+                    <p className="text-sm text-red-400 flex items-center gap-1">
                       <svg
                         className="h-4 w-4"
                         fill="currentColor"
@@ -161,23 +176,23 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="space-y-2 mb-8">
+              <div className="space-y-2 mb-6 md:mb-8">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-white"
+                  className="block text-sm font-medium text-slate-200"
                 >
-                  Message *
+                  Message <span className="text-blue-400">*</span>
                 </label>
                 <textarea
                   id="message"
-                  rows={6}
+                  rows={5}
                   {...register("message")}
-                  className="w-full rounded-xl border border-slate-600 bg-slate-700/30 px-4 py-4 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
+                  className="w-full rounded-xl border border-slate-600/80 bg-slate-900/40 px-4 py-3.5 text-base text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-slate-900/60 transition-all duration-200 resize-none"
                   placeholder="Tell me about your project, idea, or just say hello..."
                   aria-invalid={!!errors.message}
                 />
                 {errors.message && (
-                  <p className="text-sm text-red-600 flex items-center gap-1">
+                  <p className="text-sm text-red-400 flex items-center gap-1">
                     <svg
                       className="h-4 w-4"
                       fill="currentColor"
@@ -194,50 +209,20 @@ export default function ContactPage() {
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+              <div className="flex flex-col sm:flex-row-reverse gap-4 items-center justify-between">
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-blue-400 disabled:to-purple-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:shadow-none"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-blue-400 disabled:to-purple-500 text-white rounded-xl font-semibold text-base md:text-lg transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-purple-500/25 disabled:shadow-none active:scale-[0.98] disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
                     <>
-                      <svg
-                        className="animate-spin h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
+                      <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <svg
-                        className="h-5 w-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                        />
-                      </svg>
+                      <Send className="h-5 w-5" aria-hidden="true" />
                       Send Message
                     </>
                   )}
@@ -263,7 +248,7 @@ export default function ContactPage() {
                     </div>
                   )}
                   {status === "error" && (
-                    <div className="flex items-center gap-2 text-red-600">
+                    <div className="flex items-center gap-2 text-red-400">
                       <svg
                         className="h-5 w-5"
                         fill="currentColor"
@@ -283,7 +268,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <p className="text-sm text-slate-400 mt-6 text-center">
+              <p className="text-xs sm:text-sm text-slate-400 mt-6 text-center leading-relaxed">
                 By submitting this form, you agree to be contacted about your
                 inquiry. I typically respond within 24 hours.
               </p>
@@ -293,13 +278,15 @@ export default function ContactPage() {
 
         {/* Alternative Contact Methods */}
         <section className="text-center">
-          <div className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-3xl p-12 text-white">
-            <h2 className="text-4xl font-bold mb-6">Other Ways to Connect</h2>
-            <p className="text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+              Other Ways to Connect
+            </h2>
+            <p className="text-sm sm:text-base md:text-xl leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto">
               Prefer a different way to get in touch? I&apos;m also available on
               these platforms.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
               <a
                 href="https://www.linkedin.com/in/sadik182/"
                 target="_blank"
