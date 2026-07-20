@@ -2,351 +2,221 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink, Calendar, Code, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import FadeIn from "@/components/FadeIn/FadeIn";
+import { projects, featuredProject, allTags, type Project } from "@/data/projects";
 
-// ── Types ──────────────────────────────────────────────────────────────
-type ProjectStatus = "Completed" | "In Progress" | "Coming Soon";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  liveUrl?: string;
-  codeUrl?: string;
-  technologies: string[];
-  status: ProjectStatus;
-  year: string;
-  features: string[];
-  highlight?: boolean; // featured / flagship project
-}
-
-// ── Project Data ───────────────────────────────────────────────────────
-const projects: Project[] = [
-  {
-    id: 6,
-    title: "SolarCRM",
-    description:
-      "A CRM built for Australian solar installers: manage leads end-to-end, generate AI-assisted quotes with STC rebate calculations from roof photos and bills, track installs on Kanban boards with checklists and payments, and monitor revenue and pipeline health from a business dashboard. Data hosted in Sydney.",
-    image: "/images/solarcrm.png",
-    liveUrl: "https://solarjobflow.com/",
-    codeUrl: "https://github.com/Sadik182/",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    status: "Completed",
-    year: "2026",
-    features: [
-      "Lead pipeline from contact to signed contract",
-      "AI-powered quotes and STC rebate calculations",
-      "Job tracking with Kanban, checklists, and payments",
-      "Business dashboard for KPIs and pipeline metrics",
-    ],
-    highlight: true,
-  },
-  {
-    id: 1,
-    title: "Amazon Clone",
-    description:
-      "A full-featured e-commerce platform clone of Amazon built with Next.js. Features include user authentication, product catalog, shopping cart with Redux state management, secure payment processing with Stripe, and webhook integration for order management.",
-    image: "/images/amazon.png",
-    liveUrl: "https://amazon-clone-gamma-livid.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/Amazon-Clone",
-    technologies: ["Next.js", "Redux", "Stripe", "Webhooks", "TypeScript"],
-    status: "Completed",
-    year: "2026",
-    features: [
-      "User Authentication",
-      "Payment Processing",
-      "Order Management",
-      "Webhook Integration",
-    ],
-  },
-  {
-    id: 2,
-    title: "Expense Tracker",
-    description:
-      "A expense tracking application designed to help users track their expenses. Built with Next.js and TypeScript with a clean dashboard to view spending by category, add new entries, and monitor monthly budgets.",
-    image: "/images/spliteven.png",
-    liveUrl: "https://www.splitevenapp.com/",
-    codeUrl: "https://github.com/Sadik182/",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    status: "Completed",
-    year: "2025",
-    features: [
-      "Split bills by share, percentage, or exact amount",
-      "Smart settle-up with the fewest transfers",
-      "AI receipt scanning (amount, date & category)",
-      "Multi-currency support (12 currencies)",
-      "Personal & team spending with monthly budgets",
-    ],
-  },
-  {
-    id: 3,
-    title: "GoalFlow",
-    description:
-      "A goal tracking and productivity application designed to help users set, track, and achieve their objectives. Features a user dashboard with progress monitoring and clean UI for managing daily and long-term goals.",
-    image: "/images/5.jpg",
-    liveUrl: "https://goal-flow-liard.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/GoalFlow",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    status: "Completed",
-    year: "2025",
-    features: [
-      "Goal Tracking",
-      "Progress Monitoring",
-      "User Dashboard",
-      "Responsive Design",
-    ],
-  },
-  {
-    id: 4,
-    title: "Personal Portfolio",
-    description:
-      "A modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark mode, smooth animations with Framer Motion, and a working contact form powered by Resend for email delivery.",
-    image: "/images/portfolio.png",
-    liveUrl: "https://sadik1820.vercel.app/",
-    codeUrl: "https://github.com/Sadik182/Next-Portfolio",
-    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    status: "Completed",
-    year: "2025",
-    features: [
-      "SSR/SSG",
-      "Responsive Design",
-      "Contact Form",
-      "Framer Motion Animations",
-    ],
-  },
-  {
-    id: 5,
-    title: "AI Document Chat",
-    description:
-      "A full-stack app where users can upload PDFs and chat with them using the Claude API. Built with RAG to pull relevant context from documents before generating answers. Uses vector embeddings for semantic search.",
-    image: "",
-    technologies: [
-      "Next.js 15",
-      "Claude API",
-      "Pinecone",
-      "TypeScript",
-      "PostgreSQL",
-    ],
-    status: "Coming Soon",
-    year: "2026",
-    features: [
-      "Chat with PDF",
-      "Claude API Integration",
-      "Vector Search with Pinecone",
-      "Document Summarisation",
-    ],
-  },
-];
-
-// ── Status Badge Styles ────────────────────────────────────────────────
-function statusClasses(status: ProjectStatus): string {
-  switch (status) {
-    case "Completed":
-      return "bg-emerald-500/90 text-white border border-emerald-300/40";
-    case "In Progress":
-      return "bg-blue-500/90 text-white border border-blue-300/40";
-    case "Coming Soon":
-      return "bg-amber-500/90 text-white border border-amber-300/40";
-  }
-}
-
-// ── Component ──────────────────────────────────────────────────────────
 export default function ProjectsPage() {
+  const [filter, setFilter] = useState<string>("All");
+
+  const gridProjects = projects.filter((p) => p.slug !== featuredProject.slug);
+  const visible =
+    filter === "All"
+      ? gridProjects
+      : gridProjects.filter((p) => p.tags.includes(filter));
+  const featuredVisible =
+    filter === "All" || featuredProject.tags.includes(filter);
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-12">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-12 sm:py-16">
       <div className="container mx-auto px-6 md:px-12 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Featured Projects</h1>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            A collection of projects that showcase my skills in full-stack
-            development, from e-commerce platforms to AI-powered applications.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 sm:mb-12">
+            <div>
+              <p className="font-mono text-xs tracking-[0.18em] uppercase text-indigo-300 mb-3">
+                Selected Work · 2025 — 2026
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+                Things I&apos;ve shipped
+              </h1>
+              <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+                Full-stack products built with Next.js and TypeScript — every
+                project below has its own case study: the problem, how I built
+                it, and what&apos;s under the hood.
+              </p>
+            </div>
 
-        {/* Completed Projects Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-            <Code size={22} className="text-green-400" />
-            <span>Shipped</span>
-          </h2>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {projects
-              .filter((p) => p.status === "Completed")
-              .map((project) => (
-                <ProjectCard key={project.id} project={project} />
+            {/* Filters */}
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+              {["All", ...allTags].map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setFilter(tag)}
+                  aria-pressed={filter === tag}
+                  className={`px-4 py-2 rounded-full text-xs font-mono tracking-wide border transition-colors min-h-[36px] ${
+                    filter === tag
+                      ? "bg-indigo-400 border-indigo-400 text-slate-900 font-semibold"
+                      : "border-slate-700 text-slate-400 hover:text-white hover:border-slate-500"
+                  }`}
+                >
+                  {tag}
+                </button>
               ))}
+            </div>
           </div>
+        </FadeIn>
+
+        {/* Featured case study */}
+        {featuredVisible && (
+          <FadeIn>
+            <Link
+              href={`/projects/${featuredProject.slug}`}
+              className="group relative block rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-indigo-400/40 transition-colors overflow-hidden mb-14 sm:mb-16"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(600px_300px_at_85%_0%,rgba(99,102,241,0.10),transparent_70%)] pointer-events-none" />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-6 sm:p-10">
+                <div>
+                  <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-emerald-400">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 motion-reduce:hidden" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                    </span>
+                    Live · Featured
+                  </span>
+                  <h2 className="mt-4 text-2xl sm:text-3xl font-bold tracking-tight group-hover:text-indigo-200 transition-colors">
+                    {featuredProject.title}
+                  </h2>
+                  <p className="mt-3 text-slate-300 text-sm sm:text-base">
+                    {featuredProject.tagline}
+                  </p>
+                  <ul className="mt-5 space-y-2.5">
+                    {featuredProject.solution.slice(0, 3).map((s) => (
+                      <li key={s.title} className="flex gap-3 text-sm text-slate-300">
+                        <span className="text-indigo-400 font-mono shrink-0">—</span>
+                        {s.title}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 font-mono text-xs text-slate-500">
+                    {featuredProject.stack.join(" · ")}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-indigo-300 group-hover:text-indigo-200 group-hover:gap-3 transition-all">
+                    Read the case study <ArrowRight size={16} />
+                  </span>
+                </div>
+
+                <div className="rounded-xl border border-slate-700/60 overflow-hidden shadow-2xl shadow-slate-950/50">
+                  <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-900/80 border-b border-slate-700/60">
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
+                    <span className="ml-2 font-mono text-[10px] text-slate-500 truncate">
+                      solarjobflow.com
+                    </span>
+                  </div>
+                  <Image
+                    src={featuredProject.cover}
+                    alt={`${featuredProject.title} screenshot`}
+                    width={800}
+                    height={450}
+                    className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </Link>
+          </FadeIn>
+        )}
+
+        {/* Grid */}
+        <FadeIn>
+          <p className="flex items-center gap-4 font-mono text-xs tracking-[0.18em] uppercase text-slate-500 mb-6">
+            More projects
+            <span className="h-px flex-1 bg-slate-700/60" />
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+          {visible.map((project, i) => (
+            <FadeIn key={project.slug} delay={Math.min(i * 0.08, 0.3)}>
+              <ProjectCard project={project} />
+            </FadeIn>
+          ))}
+          {visible.length === 0 && !featuredVisible && (
+            <p className="text-slate-500 text-sm col-span-full">
+              No projects with this tag yet.
+            </p>
+          )}
         </div>
 
-        {/* AI-Era Projects Section — uncomment when ready to showcase
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
-            <Sparkles size={22} className="text-amber-400" />
-            <span>What I&apos;m Building Next</span>
-          </h2>
-          <p className="text-slate-400 mb-6 max-w-2xl">
-            Currently working on AI-focused projects using the Claude API
-            and modern full-stack tools. Stay tuned for updates.
-          </p>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {projects
-              .filter((p) => p.status === "Coming Soon")
-              .map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
+        {/* CTA */}
+        <FadeIn>
+          <div className="text-center">
+            <p className="text-slate-300 mb-5">
+              <span className="font-semibold text-white">
+                Have a project in mind?
+              </span>{" "}
+              I&apos;m open to freelance and full-time work.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-indigo-400 text-slate-900 rounded-lg hover:bg-indigo-300 transition-colors font-semibold text-sm"
+            >
+              Get in touch
+            </Link>
           </div>
-        </div>
-        */}
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <h2 className="text-2xl font-semibold mb-4">
-            Interested in working together?
-          </h2>
-          <p className="text-slate-300 mb-6">
-            I&apos;m always excited to work on new projects and collaborate with
-            fellow developers.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 font-medium"
-          >
-            Get In Touch
-          </Link>
-        </div>
+        </FadeIn>
       </div>
     </main>
   );
 }
 
-// ── Project Card ───────────────────────────────────────────────────────
+// ── Grid card ──────────────────────────────────────────────────────────
 function ProjectCard({ project }: { project: Project }) {
-  const isComingSoon = project.status === "Coming Soon";
-
   return (
-    <div
-      className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border ${
-        project.highlight
-          ? "border-blue-500/40 ring-1 ring-blue-500/20"
-          : "border-slate-700/50 hover:border-blue-500/30"
-      } ${isComingSoon ? "opacity-90" : ""}`}
-    >
-      {/* Image */}
-      <div className="relative overflow-hidden">
-        {isComingSoon ? (
-          <div className="w-full h-48 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-700 flex items-center justify-center">
-            <Sparkles size={40} className="text-amber-400/60" />
-          </div>
-        ) : (
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={600}
-            height={300}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        )}
-        <div className="absolute top-4 right-4">
-          <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-md ${statusClasses(project.status)}`}
-          >
-            {project.status}
+    <article className="group h-full flex flex-col rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-indigo-400/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+      <Link
+        href={`/projects/${project.slug}`}
+        className="relative block aspect-video overflow-hidden border-b border-slate-700/60"
+      >
+        <Image
+          src={project.cover}
+          alt={`${project.title} screenshot`}
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-400"
+        />
+      </Link>
+
+      <div className="flex flex-col flex-1 p-5 sm:p-6">
+        <div className="flex items-baseline justify-between gap-3 mb-2">
+          <Link href={`/projects/${project.slug}`}>
+            <h3 className="text-lg font-semibold group-hover:text-indigo-200 transition-colors">
+              {project.title}
+            </h3>
+          </Link>
+          <span className="font-mono text-xs text-slate-500">{project.year}</span>
+        </div>
+
+        <p className="text-sm text-slate-400 flex-1">{project.tagline}</p>
+
+        <div className="flex items-center justify-between gap-3 mt-5 pt-4 border-t border-slate-700/50">
+          <span className="font-mono text-[11px] text-slate-500 truncate">
+            {project.stack.slice(0, 3).join(" · ")}
+          </span>
+          <span className="flex items-center gap-4 shrink-0">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 font-mono text-xs text-indigo-300 hover:text-white transition-colors py-2"
+              >
+                Live <ExternalLink size={11} />
+              </a>
+            )}
+            <Link
+              href={`/projects/${project.slug}`}
+              className="inline-flex items-center gap-1 font-mono text-xs text-indigo-300 hover:text-white transition-colors py-2"
+            >
+              Case study <ArrowUpRight size={12} />
+            </Link>
           </span>
         </div>
-        {project.highlight && (
-          <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm shadow-md bg-purple-500/90 text-white border border-purple-300/40">
-              Featured
-            </span>
-          </div>
-        )}
       </div>
-
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-semibold">{project.title}</h3>
-          <div className="flex items-center text-sm text-slate-400">
-            <Calendar size={16} className="mr-1" />
-            {project.year}
-          </div>
-        </div>
-
-        <p className="text-slate-300 text-sm mb-4 flex-grow">
-          {project.description}
-        </p>
-
-        {/* Technologies */}
-        <div className="mb-4">
-          <div className="flex items-center mb-2">
-            <Code size={16} className="mr-2 text-gray-500" />
-            <span className="text-sm font-medium text-slate-300">
-              Technologies
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-slate-700/50 text-xs rounded-md text-slate-300 border border-slate-600/50"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Features */}
-        <div className="mb-6">
-          <div className="text-sm font-medium text-slate-300 mb-2">
-            Key Features
-          </div>
-          <ul className="text-xs text-slate-400 space-y-1">
-            {project.features.map((feature, index) => (
-              <li key={index} className="flex items-center">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-2 shrink-0"></span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex justify-between items-center pt-4 border-t border-slate-700/50">
-          {isComingSoon ? (
-            <span className="text-sm text-slate-500 italic">
-              In development — check back soon
-            </span>
-          ) : (
-            <>
-              {project.liveUrl && (
-                <Link
-                  href={project.liveUrl}
-                  target="_blank"
-                  className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 text-sm font-medium"
-                >
-                  <ExternalLink size={16} className="mr-2" />
-                  Live Demo
-                </Link>
-              )}
-              {project.codeUrl && (
-                <Link
-                  href={project.codeUrl}
-                  target="_blank"
-                  className="flex items-center px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700/50 transition-colors duration-200 text-sm font-medium"
-                >
-                  <Github size={16} className="mr-2" />
-                  Code
-                </Link>
-              )}
-            </>
-          )}
-        </div>
-      </div>
-    </div>
+    </article>
   );
 }

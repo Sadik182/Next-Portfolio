@@ -1,5 +1,6 @@
 // app/skills/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 import FadeIn from "@/components/FadeIn/FadeIn";
 
 export const metadata: Metadata = {
@@ -294,7 +295,7 @@ export default function SkillsPage() {
               </svg>
               Let&apos;s Connect
             </a>
-            <a
+            <Link
               href="/projects"
               className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
             >
@@ -312,7 +313,7 @@ export default function SkillsPage() {
                 />
               </svg>
               View My Work
-            </a>
+            </Link>
           </div>
         </div>
         </FadeIn>
