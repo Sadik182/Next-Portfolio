@@ -1,321 +1,135 @@
 // app/skills/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight, Briefcase } from "lucide-react";
 import FadeIn from "@/components/FadeIn/FadeIn";
+import SkillsWorkbench from "@/components/Skills/SkillsWorkbench";
 
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Technical skills of Md Sadikur Rahman — Next.js, TypeScript, React, MongoDB, Tailwind CSS, and more.",
+    "Skills of Md Sadikur Rahman — TypeScript, React, Next.js, Node.js, MongoDB and AWS, used daily in production as a full-stack developer in Sydney.",
 };
 
-type Level = "Beginner" | "Intermediate" | "Advanced" | "Expert";
-
-type Skill = { name: string; level: Level; note?: string };
-type Group = { title: string; skills: Skill[] };
-
-const groups: Group[] = [
-  {
-    title: "Frontend",
-    skills: [
-      {
-        name: "Next.js (App Router)",
-        level: "Advanced",
-        note: "SSR, ISR, routing",
-      },
-      { name: "React", level: "Advanced", note: "Hooks, context" },
-      {
-        name: "TypeScript",
-        level: "Advanced",
-        note: "Typesafe components/APIs",
-      },
-      {
-        name: "Tailwind CSS",
-        level: "Advanced",
-        note: "Responsive UI, design systems",
-      },
-    ],
-  },
-  {
-    title: "Backend & Database",
-    skills: [
-      { name: "Node.js", level: "Intermediate", note: "API routes" },
-      {
-        name: "MongoDB (Atlas/Compass)",
-        level: "Advanced",
-        note: "Schema design, indexes",
-      },
-      { name: "REST APIs", level: "Intermediate", note: "Routing, validation" },
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
-      { name: "Git & Bitbucket", level: "Advanced", note: "PRs, reviews" },
-      { name: "Postman", level: "Advanced", note: "API testing, collections" },
-      {
-        name: "Chrome DevTools",
-        level: "Advanced",
-        note: "Performance, debugging",
-      },
-      { name: "Vercel", level: "Advanced", note: "Deployment, analytics" },
-
-      {
-        name: "GitHub Actions",
-        level: "Intermediate",
-      },
-    ],
-  },
-  {
-    title: "Professional",
-    skills: [
-      { name: "Team Collaboration", level: "Advanced" },
-      { name: "Mentoring", level: "Advanced", note: "IUBAT IT Society" },
-      {
-        name: "Problem Solving",
-        level: "Intermediate",
-      },
-      { name: "Communication", level: "Advanced" },
-    ],
-  },
-];
-
 export default function SkillsPage() {
-  const getLevelColor = (level: Level) => {
-    switch (level) {
-      case "Expert":
-        return "bg-green-500/20 text-green-300 border-green-500/30";
-      case "Advanced":
-        return "bg-blue-500/20 text-blue-300 border-blue-500/30";
-      case "Intermediate":
-        return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30";
-      case "Beginner":
-        return "bg-slate-700/50 text-slate-300 border-slate-600/50";
-      default:
-        return "bg-slate-700/50 text-slate-300 border-slate-600/50";
-    }
-  };
-
-  const getLevelIcon = (level: Level) => {
-    switch (level) {
-      case "Expert":
-        return "⭐";
-      case "Advanced":
-        return "🚀";
-      case "Intermediate":
-        return "💪";
-      case "Beginner":
-        return "🌱";
-      default:
-        return "📚";
-    }
-  };
-
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16 py-12">
-        {/* Header Section */}
+    <main className="relative min-h-screen bg-slate-900 text-white overflow-hidden">
+      {/* Ambient background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(800px_400px_at_70%_-10%,rgba(99,102,241,0.16),transparent_70%)]" />
+        <div className="absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(600px_300px_at_15%_0%,rgba(16,185,129,0.07),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(148,163,184,0.07)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_45%)]" />
+      </div>
+
+      <div className="relative container mx-auto px-6 md:px-12 lg:px-16 py-12 sm:py-16">
+        {/* ── Hero ─────────────────────────────────────────────── */}
         <FadeIn>
-        <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Technical Skills
-          </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and professional
-            capabilities across different domains.
-          </p>
-        </header>
-        </FadeIn>
-
-        {/* Skills Grid */}
-        <FadeIn delay={0.1}>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-16">
-          {groups.map((group, groupIndex) => (
-            <div
-              key={group.title}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-700/50 hover:border-blue-500/30"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">
-                    {groupIndex === 0 && "💻"}
-                    {groupIndex === 1 && "⚙️"}
-                    {groupIndex === 2 && "🛠️"}
-                    {groupIndex === 3 && "👥"}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold text-white">
-                  {group.title}
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                {group.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="group p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-white text-lg">
-                            {skill.name}
-                          </h3>
-                          <span className="text-lg">
-                            {getLevelIcon(skill.level)}
-                          </span>
-                        </div>
-                        {skill.note && (
-                          <p className="text-sm text-slate-300 leading-relaxed">
-                            {skill.note}
-                          </p>
-                        )}
-                      </div>
-                      <span
-                        className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium border ${getLevelColor(
-                          skill.level
-                        )}`}
-                      >
-                        {skill.level}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        </FadeIn>
-
-        {/* Core Stack Section */}
-        <FadeIn delay={0.1}>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-6">
-              Core Technology Stack
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                "Next.js",
-                "TypeScript",
-                "MongoDB",
-                "Tailwind CSS",
-                "React",
-                "Node.js",
-              ].map((tech) => (
-                <div
-                  key={tech}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
+          <div className="max-w-2xl mb-12 sm:mb-14">
+            <p className="flex flex-wrap items-center font-mono text-[12px] sm:text-[13px] mb-6">
+              <span className="text-emerald-400 mr-2">➜</span>
+              <span className="text-indigo-300">~/skills</span>
+              <span className="text-slate-600 ml-2">git:(</span>
+              <span className="text-rose-300">main</span>
+              <span className="text-slate-600">)</span>
+              <span className="text-slate-400 ml-3">cat README.md</span>
+              <span
+                aria-hidden
+                className="ml-1.5 inline-block w-[7px] h-[14px] translate-y-[2px] bg-slate-400/80 animate-pulse motion-reduce:animate-none"
+              />
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5 [text-wrap:balance]">
+              Skills, shipped to{" "}
+              <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-cyan-300 bg-clip-text text-transparent">
+                production.
+              </span>
+            </h1>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:pretty] mb-7">
+              Not a list of tutorials I&apos;ve watched — these are the tools
+              I use every day building a fintech platform used across
+              Australia and New Zealand. Open the files below and have a look
+              around.
+            </p>
+            <p className="flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.16em] uppercase">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-emerald-400 border-emerald-400/30 bg-emerald-400/10">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 motion-reduce:hidden" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                </span>
+                Used daily in production
+              </span>
+              <span className="text-slate-500">Full-stack · Sydney</span>
+            </p>
           </div>
-        </div>
         </FadeIn>
 
-        {/* Experience Timeline */}
+        {/* ── The workbench ────────────────────────────────────── */}
         <FadeIn delay={0.1}>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-slate-700/50 mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">
-            Skill Development Journey
-          </h2>
-          <div className="space-y-6">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-500/10 border border-blue-500/30">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white">
-                  Foundation Building
-                </h3>
-                <p className="text-sm text-slate-300">
-                  Started with core web technologies and programming
-                  fundamentals
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-green-500/10 border border-green-500/30">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white">
-                  Framework Mastery
-                </h3>
-                <p className="text-sm text-slate-300">
-                  Deep dive into React, Next.js, and modern development
-                  practices
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white">
-                  Professional Growth
-                </h3>
-                <p className="text-sm text-slate-300">
-                  Applied skills in real-world projects and team environments
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <SkillsWorkbench />
         </FadeIn>
 
-        {/* Call to Action */}
-        <FadeIn delay={0.1}>
-        <div className="text-center bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            I&apos;m always excited to take on new challenges and learn new
-            technologies.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white rounded-xl font-semibold text-lg hover:bg-slate-800 border border-slate-700/50 transition-all"
-            >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-              Let&apos;s Connect
-            </a>
+        {/* ── Where to next ────────────────────────────────────── */}
+        <FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-14 sm:mt-16">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
+              className="group relative rounded-2xl border border-slate-700/60 bg-slate-800/40 overflow-hidden p-6 sm:p-7 hover:border-indigo-400/40 transition-colors"
             >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                />
-              </svg>
-              View My Work
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(300px_120px_at_15%_0%,rgba(99,102,241,0.1),transparent_70%)]" />
+              <p className="relative font-mono text-[10px] tracking-[0.16em] uppercase text-slate-500 mb-2">
+                See them in action
+              </p>
+              <p className="relative font-semibold text-lg mb-1 group-hover:text-indigo-200 transition-colors">
+                Project case studies
+              </p>
+              <p className="relative text-sm text-slate-400 leading-relaxed">
+                The problem, the build decisions and the tech behind every
+                project.
+              </p>
+              <ArrowRight
+                size={16}
+                className="relative mt-4 text-slate-500 group-hover:text-indigo-300 group-hover:translate-x-1 transition-all"
+              />
+            </Link>
+            <Link
+              href="/experiences"
+              className="group relative rounded-2xl border border-slate-700/60 bg-slate-800/40 overflow-hidden p-6 sm:p-7 hover:border-indigo-400/40 transition-colors"
+            >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(300px_120px_at_15%_0%,rgba(99,102,241,0.1),transparent_70%)]" />
+              <p className="relative font-mono text-[10px] tracking-[0.16em] uppercase text-slate-500 mb-2">
+                Where I used them
+              </p>
+              <p className="relative font-semibold text-lg mb-1 group-hover:text-indigo-200 transition-colors">
+                Work experience
+              </p>
+              <p className="relative text-sm text-slate-400 leading-relaxed">
+                Roles, internships and what I shipped at each one.
+              </p>
+              <Briefcase
+                size={16}
+                className="relative mt-4 text-slate-500 group-hover:text-indigo-300 transition-colors"
+              />
             </Link>
           </div>
-        </div>
+        </FadeIn>
+
+        {/* ── CTA ──────────────────────────────────────────────── */}
+        <FadeIn>
+          <div className="relative rounded-3xl border border-slate-700/60 bg-slate-800/40 overflow-hidden text-center px-6 py-14 mt-14 sm:mt-16">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(500px_200px_at_50%_120%,rgba(99,102,241,0.18),transparent_70%)]" />
+            <h2 className="relative text-xl sm:text-2xl font-bold tracking-tight mb-3">
+              Need this stack on your team?
+            </h2>
+            <p className="relative text-slate-400 mb-7 max-w-xl mx-auto">
+              I&apos;m based in Sydney, happy to work remote, and open to a
+              conversation.
+            </p>
+            <Link
+              href="/contact"
+              className="relative inline-flex items-center gap-2 px-7 py-3 bg-indigo-400 text-slate-900 rounded-lg hover:bg-indigo-300 hover:shadow-lg hover:shadow-indigo-500/20 transition-all font-semibold text-sm"
+            >
+              Get in touch <ArrowRight size={15} />
+            </Link>
+          </div>
         </FadeIn>
       </div>
     </main>
